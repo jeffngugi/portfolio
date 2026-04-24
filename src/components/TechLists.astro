@@ -1,0 +1,26 @@
+---
+import Marquee from "./Marquee.astro";
+import { skills } from "../data/data.js";
+
+const doubledSkills = [...skills, ...skills];
+---
+
+<div class='mt-10'>
+  <h2 class="text-xl font-medium before:content-['>'] before:mr-1">
+    Tech Stack
+  </h2>
+  <Marquee duration='10s'>
+    <div class='flex gap-8 mt-4'>
+      {
+        doubledSkills.map((skill) => (
+          <div class='flex flex-col items-center gap-2 w-[80px] p-2'>
+            <div class='border-2 p-2 border-base-content/20 shadow-md rounded-sm dark:bg-base-content'>
+              <img src={skill.icon} class='w-10 h-10' alt={skill.alt} />
+            </div>
+            <span class='text-sm'>{skill.name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </Marquee>
+</div>

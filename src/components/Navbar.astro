@@ -1,0 +1,91 @@
+---
+import ThemeToggle from "./ThemeToggle";
+
+const { pathname } = Astro.props;
+const isBlogs = pathname === "/blogs";
+---
+
+<div
+  class='flex justify-center sticky top-2 items-center gap-[25px] w-full z-10'
+>
+  <div
+    class='w-[70%] sm:w-[80%] border flex items-center sm:justify-center justify-end bg-gray-10/50 backdrop-blur-sm rounded-3xl py-2 px-4'
+  >
+    <div class='flex items-center sm:gap-8 gap-5'>
+      <div class='flex items-center gap-4'>
+        <ul
+          id='mobile-menu'
+          class='w-[90%] sm:w-full sm:flex-row flex-col sm:bg-transparent bg-base-200 backdrop-blur-sm sm:static fixed top-12 left-[5%] rounded-2xl sm:border-transparent border mx-auto items-center text-base sm:p-0 p-2 gap-2 sm:gap-4 hidden sm:flex'
+        >
+          <li><a href='/#about' class='hover:underline'>About</a></li>
+          <li><a href='/#projects' class='hover:underline'>Projects</a></li>
+          <li><a href='/#experience' class='hover:underline'>Experience</a></li>
+          <li><a href='/contact' class='hover:underline'>Contact</a></li>
+        </ul>
+
+        <a href='/blogs' class='hover:underline hidden sm:block'>Blogs</a>
+        <a
+          href={isBlogs ? "/" : "/blogs"}
+          class='hover:underline block sm:hidden'
+        >
+          {isBlogs ? "Home" : "Blogs"}
+        </a>
+      </div>
+
+      <div class='flex items-center gap-2'>
+        <button id='hamburger-btn' class='flex sm:hidden'>
+          <span class='material-symbols-outlined'>menu</span>
+        </button>
+        <button class='flex'>
+          <label class='toggle text-base-content toggle-sm'>
+            <input
+              id='theme-checkbox'
+              type='checkbox'
+              class='theme-controller'
+            />
+            <svg
+              aria-label='sun'
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 24 24'
+            >
+              <g
+                stroke-linejoin='round'
+                stroke-linecap='round'
+                stroke-width='2'
+                fill='none'
+                stroke='currentColor'
+              >
+                <circle cx='12' cy='12' r='4'></circle>
+                <path d='M12 2v2'></path>
+                <path d='M12 20v2'></path>
+                <path d='m4.93 4.93 1.41 1.41'></path>
+                <path d='m17.66 17.66 1.41 1.41'></path>
+                <path d='M2 12h2'></path>
+                <path d='M20 12h2'></path>
+                <path d='m6.34 17.66-1.41 1.41'></path>
+                <path d='m19.07 4.93-1.41 1.41'></path>
+              </g>
+            </svg>
+            <svg
+              aria-label='moon'
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 24 24'
+            >
+              <g
+                stroke-linejoin='round'
+                stroke-linecap='round'
+                stroke-width='2'
+                fill='none'
+                stroke='currentColor'
+              >
+                <path d='M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z'></path>
+              </g>
+            </svg>
+          </label>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ThemeToggle client:load />

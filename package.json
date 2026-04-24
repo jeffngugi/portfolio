@@ -12,6 +12,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.1.9"
+    "@astrojs/cloudflare": "^13.2.1",
+    "@astrojs/react": "^5.0.4",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.2.4",
+    "add": "^2.0.6",
+    "astro": "^6.1.9",
+    "cloudflare": "^5.2.0",
+    "daisyui": "^5.5.19",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "tailwindcss": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3"
   }
 }

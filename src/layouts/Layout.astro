@@ -1,23 +1,51 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import "../styles/globals.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { seo } from "../data/data.js";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+const {
+  title = seo.title,
+  description = seo.description,
+  keywords = seo.keywords,
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang='en' data-theme='light'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{title}</title>
+    <meta name='description' content={description} />
+    <meta name='keywords' content={keywords} />
+    <link rel='icon' href='/favicon.png' />
+    <link
+      rel='stylesheet'
+      href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu'
+    />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap'
+      rel='stylesheet'
+    />
+    <script is:inline>
+      (function () {
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        const theme = saved || (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+  </head>
+  <body class='antialiased overflow-auto'>
+    <div class='w-[100%] md:w-[700px] m-auto'>
+      <Navbar pathname={pathname} />
+      <slot />
+      <Footer />
+    </div>
+  </body>
+</html>
