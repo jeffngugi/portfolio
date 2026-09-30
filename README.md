@@ -1,46 +1,47 @@
-# Astro Starter Kit: Basics
+# Portfolio
 
-```sh
-yarn create astro@latest -- --template basics
-```
+Personal portfolio and blog built with Astro, deployed to Cloudflare Workers.
+Content is managed with [Keystatic](https://keystatic.com) and stored as files
+in this repo — there is no database.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-## 🚀 Project Structure
+| Command        | Action                                                  |
+| :------------- | :------------------------------------------------------ |
+| `yarn install` | Install dependencies (Node >= 22.12)                    |
+| `yarn dev`     | Start the site at `localhost:4321` (Cloudflare runtime) |
+| `yarn cms`     | Start the site with the CMS enabled (Node runtime)      |
+| `yarn build`   | Build for production to `./dist/`                       |
+| `yarn preview` | Preview the production build locally                    |
 
-Inside of your Astro project, you'll see the following folders and files:
+## Editing content
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+1. Run `yarn cms` and open <http://localhost:4321/keystatic>.
+2. Edit a blog post or the portfolio sections (profile, projects, experience,
+   tech stack) and save. Keystatic writes the changes straight to
+   `src/content/`.
+3. Check the result at <http://localhost:4321>, then commit and push:
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+   ```sh
+   git add src/content
+   git commit -m "Add post: <title>"
+   git push
+   ```
 
-## 🧞 Commands
+Pushing to `main` triggers a Cloudflare rebuild; the change is live once the
+deploy finishes.
 
-All commands are run from the root of the project, from a terminal:
+The CMS is not available on the live site. To enable browser editing there,
+see the GitHub mode note at the top of `keystatic.config.ts`.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `yarn install`             | Installs dependencies                            |
-| `yarn dev`             | Starts local dev server at `localhost:4321`      |
-| `yarn build`           | Build your production site to `./dist/`          |
-| `yarn preview`         | Preview your build locally, before deploying     |
-| `yarn astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `yarn astro -- --help` | Get help using the Astro CLI                     |
+## Where content lives
 
-## 👀 Want to learn more?
+| Path                           | Content                                   |
+| :----------------------------- | :---------------------------------------- |
+| `src/content/blog/*.md`        | Blog posts (`draft: true` hides a post)   |
+| `src/content/profile.json`     | Name, bio, links, SEO                     |
+| `src/content/projects.json`    | Projects (`pinned` shows on the home page) |
+| `src/content/experience.json`  | Work history                              |
+| `src/content/skills.json`      | Tech stack                                |
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+`src/data/data.js` maps these files to the shapes the components use.
