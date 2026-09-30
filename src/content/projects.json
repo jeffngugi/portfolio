@@ -14,15 +14,16 @@
       "pinned": true
     },
     {
-      "title": "Chamaa",
+      "title": "Chadda",
       "description": "Digital savings-group (chama) platform for Kenya with M-Pesa integration. Built the NestJS / TypeORM backend: role- and resource-based permissions and REST endpoints consumed by React web and React Native clients.",
       "tags": [
         "NestJS",
         "TypeORM",
         "PostgreSQL",
-        "M-Pesa"
+        "M-Pesa",
+        "Docker",
+        "ReactJS"
       ],
-      "link": "",
       "pinned": true
     },
     {
