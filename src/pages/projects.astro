@@ -7,8 +7,8 @@ const allProjects = [...projects.pinProjects, ...projects.otherProjects];
 
 <Layout
   title={`Projects | ${seo.title}`}
-  description='Explore a curated collection of web development projects built with Next.js, React, and modern web technologies.'
-  keywords='projects, web development, Next.js, React, JavaScript, portfolio'
+  description='Explore a curated collection of web development projects by Geoffrey Ngugi — React Native mobile apps, NestJS and Node.js backends, and web apps.'
+  keywords='projects, React Native, NestJS, Node.js, TypeScript, portfolio'
 >
   <div class='md:w-[700px] w-[100%] mt-5 p-4'>
     <main class='flex flex-col gap-2'>
@@ -19,7 +19,7 @@ const allProjects = [...projects.pinProjects, ...projects.otherProjects];
         {
           allProjects.map((item) => (
             <a
-              href={item.link}
+              href={item.link || undefined}
               target='_blank'
               rel='noopener noreferrer'
               class='group cursor-pointer p-4 border-2 border-base-content/20 hover:border-base-content/80 rounded-2xl hover:scale-102 transition-transform duration-200'

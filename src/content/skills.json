@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "name": "TypeScript",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+    },
+    {
+      "name": "React Native",
+      "icon": "/react.svg"
+    },
+    {
+      "name": "Expo",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/expo/expo-original.svg"
+    },
+    {
+      "name": "React Js",
+      "icon": "/react.svg"
+    },
+    {
+      "name": "Next Js",
+      "icon": "/nextjs.svg"
+    },
+    {
+      "name": "Node Js",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+    },
+    {
+      "name": "NestJS",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg"
+    },
+    {
+      "name": "PostgreSQL",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+    },
+    {
+      "name": "Redis",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+    },
+    {
+      "name": "Laravel",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
+    },
+    {
+      "name": "Python",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+    },
+    {
+      "name": "Kotlin",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
+    },
+    {
+      "name": "Firebase",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg"
+    },
+    {
+      "name": "GH Actions",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg"
+    }
+  ]
+}

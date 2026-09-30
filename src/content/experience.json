@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "title": "Senior Software Engineer at Workpay",
+      "date": "Dec 2021 – Present",
+      "description": "Lead mobile development of a client-facing Expo / React Native app with 10,000+ MAU and manage a 3-person mobile team. Built GitHub Actions + Fastlane CI/CD for Android and iOS, Maestro E2E tests on BrowserStack, and NestJS auth features (JWT with Redis token revocation, Keycloak SSO). Integrated Segment, Firebase and Sentry, cutting mean time to detect issues by ~40%."
+    },
+    {
+      "title": "Software Developer at Repay Africa",
+      "date": "May 2021 – Dec 2021",
+      "description": "Built a React / Redux web dashboard for clients and internal teams and a cross-platform React Native app. Added localization and Google services (location, authentication) and managed iOS and Android releases."
+    },
+    {
+      "title": "Software Developer at UAP",
+      "date": "Jun 2020 – Apr 2021",
+      "description": "Performed API testing and manual end-to-end testing to validate releases, and debugged and reported system issues as part of the QA and development team."
+    },
+    {
+      "title": "Software Developer Apprentice at Kuzalab",
+      "date": "Jun 2020 – Apr 2021",
+      "description": "Worked with a cross-functional team on a data-intensive web application using Laravel, TypeScript and SASS, building APIs that connect front-end apps to back-end systems."
+    }
+  ]
+}

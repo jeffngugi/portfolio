@@ -1,0 +1,14 @@
+{
+  "name": "Geoffrey Ngugi",
+  "role": "Software Developer Engineer",
+  "location": "Remote, Nairobi",
+  "about": "Full-stack engineer with 5+ years shipping and maintaining a production mobile app serving 10,000+ monthly active users. I build across the stack — React Native / Expo on the front end and NestJS / Node.js on the backend — and own mobile release engineering end to end: CI/CD with GitHub Actions and Fastlane, code signing, and store distribution. I care about end-to-end test automation (Maestro, Playwright, BrowserStack) and solid backend API and authentication work.",
+  "email": "ngugimwathi254@gmail.com",
+  "avatar": "https://avatars.githubusercontent.com/u/17499463?v=4",
+  "github": "https://github.com/jeffngugi",
+  "linkedin": "https://www.linkedin.com/in/geoffrey-ngugi",
+  "website": "https://ngugi.dev",
+  "formspreeUrl": "https://formspree.io/f/<url>",
+  "seoDescription": "Geoffrey Ngugi — Nairobi-based software engineer building React Native mobile apps and NestJS / Node.js backends, with CI/CD, test automation and app store release experience.",
+  "seoKeywords": "Geoffrey Ngugi, software engineer, React Native, Expo, NestJS, Node.js, TypeScript, mobile developer, Nairobi, Kenya"
+}

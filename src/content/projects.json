@@ -1,0 +1,100 @@
+{
+  "items": [
+    {
+      "title": "Workpay Mobile App",
+      "description": "Client-facing HR & payroll mobile app serving 10,000+ monthly active users. Led a 3-person mobile team, built offline-first features for low-connectivity regions, Maestro E2E tests on BrowserStack, and GitHub Actions + Fastlane release pipelines — reaching a 95% crash-free rate.",
+      "tags": [
+        "React Native",
+        "Expo",
+        "Fastlane",
+        "Maestro",
+        "Sentry"
+      ],
+      "link": "https://www.myworkpay.com",
+      "pinned": true
+    },
+    {
+      "title": "Chamaa",
+      "description": "Digital savings-group (chama) platform for Kenya with M-Pesa integration. Built the NestJS / TypeORM backend: role- and resource-based permissions and REST endpoints consumed by React web and React Native clients.",
+      "tags": [
+        "NestJS",
+        "TypeORM",
+        "PostgreSQL",
+        "M-Pesa"
+      ],
+      "link": "",
+      "pinned": true
+    },
+    {
+      "title": "Andela BuildForSDG",
+      "description": "Web application enabling landowners to lease or contribute unused agricultural land to community food-security programs, tackling local hunger through accessible technology.",
+      "tags": [
+        "React Js",
+        "JavaScript"
+      ],
+      "link": "https://github.com/BuildForSDG/TEAM-192-FRONT-END",
+      "pinned": true
+    },
+    {
+      "title": "Inventory Manager",
+      "description": "An inventory management app built with Next.js and TypeScript.",
+      "tags": [
+        "Next Js",
+        "TypeScript"
+      ],
+      "link": "https://github.com/jeffngugi/inventory-manager",
+      "pinned": false
+    },
+    {
+      "title": "Notification Server",
+      "description": "A Node.js API that delivers push notifications to mobile apps.",
+      "tags": [
+        "Node Js",
+        "Express"
+      ],
+      "link": "https://github.com/jeffngugi/notificationServer",
+      "pinned": false
+    },
+    {
+      "title": "FastAPI CRUD Auth",
+      "description": "A FastAPI service with CRUD endpoints and authentication.",
+      "tags": [
+        "Python",
+        "FastAPI"
+      ],
+      "link": "https://github.com/jeffngugi/FastApiCrudAuth",
+      "pinned": false
+    },
+    {
+      "title": "Thimo Citu",
+      "description": "A React Native app collecting 100 Kikuyu proverbs.",
+      "tags": [
+        "React Native",
+        "TypeScript"
+      ],
+      "link": "https://github.com/jeffngugi/thimoCitu",
+      "pinned": false
+    },
+    {
+      "title": "Kotlin Quiz App",
+      "description": "A native Android quiz app written in Kotlin.",
+      "tags": [
+        "Kotlin",
+        "Android"
+      ],
+      "link": "https://github.com/jeffngugi/quizApp",
+      "pinned": false
+    },
+    {
+      "title": "E-commerce Store",
+      "description": "An e-commerce web app built with React, Redux and TypeScript, with Jest tests and CircleCI.",
+      "tags": [
+        "React Js",
+        "Redux",
+        "TypeScript"
+      ],
+      "link": "https://github.com/jeffngugi/ecommerce",
+      "pinned": false
+    }
+  ]
+}

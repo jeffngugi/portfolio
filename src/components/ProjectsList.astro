@@ -16,7 +16,7 @@ import { projects } from "../data/data.js";
     {
       projects.pinProjects.map((item) => (
         <a
-          href={item.link}
+          href={item.link || undefined}
           target='_blank'
           rel='noopener noreferrer'
           class='group cursor-pointer p-4 border-2 border-base-content/20 hover:border-base-content/80 rounded-2xl hover:scale-102 transition-transform duration-200'

@@ -7,6 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "cms": "CMS=1 astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -14,6 +15,8 @@
   "dependencies": {
     "@astrojs/cloudflare": "^13.2.1",
     "@astrojs/react": "^5.0.4",
+    "@keystatic/astro": "^6.0.0",
+    "@keystatic/core": "^0.6.9",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.4",
     "add": "^2.0.6",
@@ -25,6 +28,7 @@
     "tailwindcss": "^4.2.4"
   },
   "devDependencies": {
+    "@astrojs/node": "~10.0.6",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "wrangler": "^4.85.0"

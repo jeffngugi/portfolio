@@ -1,12 +1,26 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import { blogs, seo } from "../data/data.js";
+import { seo } from "../data/data.js";
+
+export const prerender = true;
+
+const blogs = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
+);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 ---
 
 <Layout
   title={`Blogs | ${seo.title}`}
-  description='Read articles, tutorials, and insights on web development, Next.js, and programming.'
-  keywords='blog, web development, Next.js, programming, tutorials'
+  description='Read articles, tutorials, and insights on web development, programming and mobile development.'
+  keywords='blog, web development, React Native, NestJS, programming, tutorials'
 >
   <div class='md:w-[700px] w-[100%] mt-5 p-4'>
     <main class='flex flex-col gap-2'>
@@ -17,11 +31,23 @@ import { blogs, seo } from "../data/data.js";
         {
           blogs.length > 0 ? (
             blogs.map((blog) => (
-              <div class='flex items-center justify-between gap-5'>
-                <a href={blog.link}>
-                  <h2 class='cursor-pointer hover:underline'>{blog.title}</h2>
+              <div class='flex items-start justify-between gap-5'>
+                <a href={`/blog/${blog.id}`} class='flex flex-col gap-0.5'>
+                  <h2 class='cursor-pointer hover:underline'>
+                    {blog.data.title}
+                  </h2>
+                  {blog.data.description && (
+                    <p class='text-sm text-base-content/70'>
+                      {blog.data.description}
+                    </p>
+                  )}
                 </a>
-                <p class='text-xs'>{blog.date}</p>
+                <time
+                  class='text-xs shrink-0 mt-1'
+                  datetime={blog.data.publishedDate.toISOString()}
+                >
+                  {formatDate(blog.data.publishedDate)}
+                </time>
               </div>
             ))
           ) : (
