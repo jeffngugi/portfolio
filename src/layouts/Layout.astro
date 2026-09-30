@@ -2,7 +2,8 @@
 import "../styles/globals.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-import { seo } from "../data/data.js";
+import "@fontsource-variable/rethink-sans";
+import { about, seo } from "../data/data.js";
 
 const {
   title = seo.title,
@@ -10,7 +11,9 @@ const {
   keywords = seo.keywords,
 } = Astro.props;
 
-const pathname = Astro.url.pathname;
+// Pages are built as `name.html` but served without the extension.
+const pathname = Astro.url.pathname.replace(/(index)?\.html$/, "");
+const canonical = new URL(pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -22,14 +25,18 @@ const pathname = Astro.url.pathname;
     <meta name='description' content={description} />
     <meta name='keywords' content={keywords} />
     <link rel='icon' href='/favicon.png' />
-    <link
-      rel='stylesheet'
-      href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu'
-    />
-    <link
-      href='https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap'
-      rel='stylesheet'
-    />
+    <link rel='canonical' href={canonical} />
+    <link rel='sitemap' href='/sitemap-index.xml' />
+    <meta property='og:type' content='website' />
+    <meta property='og:site_name' content={about.name} />
+    <meta property='og:title' content={title} />
+    <meta property='og:description' content={description} />
+    <meta property='og:url' content={canonical} />
+    <meta property='og:image' content={about.avatar} />
+    <meta name='twitter:card' content='summary' />
+    <meta name='twitter:title' content={title} />
+    <meta name='twitter:description' content={description} />
+    <meta name='twitter:image' content={about.avatar} />
     <script is:inline>
       (function () {
         const saved = localStorage.getItem("theme");

@@ -1,6 +1,4 @@
 ---
-import ThemeToggle from "./ThemeToggle";
-
 const { pathname } = Astro.props;
 const isBlogs = pathname === "/blogs";
 ---
@@ -33,11 +31,98 @@ const isBlogs = pathname === "/blogs";
       </div>
 
       <div class='flex items-center gap-2'>
-        <button id='hamburger-btn' class='flex sm:hidden'>
-          <span class='material-symbols-outlined'>menu</span>
+        <button
+          id='hamburger-btn'
+          class='flex sm:hidden cursor-pointer'
+          aria-label='Menu'
+          aria-controls='mobile-menu'
+          aria-expanded='false'
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            height='24px'
+            viewBox='0 -960 960 960'
+            width='24px'
+            fill='currentColor'
+            aria-hidden='true'
+          >
+            <path
+              d='M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z'
+            ></path>
+          </svg>
         </button>
-        <ThemeToggle client:load />
+        <label class='toggle text-base-content toggle-sm'>
+          <input
+            id='theme-toggle'
+            type='checkbox'
+            class='theme-controller'
+            aria-label='Dark mode'
+          />
+          <svg
+            aria-label='sun'
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 24 24'
+          >
+            <g
+              stroke-linejoin='round'
+              stroke-linecap='round'
+              stroke-width='2'
+              fill='none'
+              stroke='currentColor'
+            >
+              <circle cx='12' cy='12' r='4'></circle>
+              <path d='M12 2v2'></path>
+              <path d='M12 20v2'></path>
+              <path d='m4.93 4.93 1.41 1.41'></path>
+              <path d='m17.66 17.66 1.41 1.41'></path>
+              <path d='M2 12h2'></path>
+              <path d='M20 12h2'></path>
+              <path d='m6.34 17.66-1.41 1.41'></path>
+              <path d='m19.07 4.93-1.41 1.41'></path>
+            </g>
+          </svg>
+          <svg
+            aria-label='moon'
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 24 24'
+          >
+            <g
+              stroke-linejoin='round'
+              stroke-linecap='round'
+              stroke-width='2'
+              fill='none'
+              stroke='currentColor'
+            >
+              <path d='M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z'></path>
+            </g>
+          </svg>
+        </label>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  const toggle = document.getElementById("theme-toggle") as HTMLInputElement;
+  toggle.checked =
+    document.documentElement.getAttribute("data-theme") === "dark";
+  toggle.addEventListener("change", () => {
+    const theme = toggle.checked ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  });
+
+  const menu = document.getElementById("mobile-menu")!;
+  const menuButton = document.getElementById("hamburger-btn")!;
+  const setMenuOpen = (open: boolean) => {
+    menu.classList.toggle("hidden", !open);
+    menu.classList.toggle("flex", open);
+    menuButton.setAttribute("aria-expanded", String(open));
+  };
+  menuButton.addEventListener("click", () =>
+    setMenuOpen(menu.classList.contains("hidden")),
+  );
+  menu.addEventListener("click", (e) => {
+    if ((e.target as HTMLElement).closest("a")) setMenuOpen(false);
+  });
+</script>

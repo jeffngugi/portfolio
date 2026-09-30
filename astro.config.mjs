@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import cloudflare from "@astrojs/cloudflare";
 import react from "@astrojs/react";
 import keystatic from "@keystatic/astro";
+import sitemap from "@astrojs/sitemap";
 
 const env = loadEnv(process.env.NODE_ENV ?? "", process.cwd(), "");
 
@@ -18,9 +19,20 @@ const adapter = cmsMode
   : cloudflare();
 
 export default defineConfig({
-  integrations: [react(), ...(cmsMode || githubMode ? [keystatic()] : [])],
-  output: "server",
+  site: "https://ngugi.dev",
+  integrations: [
+    react(),
+    sitemap(),
+    ...(cmsMode || githubMode ? [keystatic()] : []),
+  ],
+  // Every page is prebuilt; Keystatic's own routes opt out of prerendering.
+  // `yarn cms` stays fully on-demand so edits show up without a rebuild.
+  output: cmsMode ? "server" : "static",
   adapter,
+  // `/blogs` is served as blogs.html, avoiding a redirect to `/blogs/`.
+  trailingSlash: "never",
+  build: { format: "file" },
+  redirects: { "/about": "/#about" },
   vite: {
     plugins: [tailwindcss()],
   },

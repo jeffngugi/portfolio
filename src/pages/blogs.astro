@@ -3,8 +3,6 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import { seo } from "../data/data.js";
 
-export const prerender = true;
-
 const blogs = (await getCollection("blog", ({ data }) => !data.draft)).sort(
   (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
 );
