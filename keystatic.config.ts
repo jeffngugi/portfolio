@@ -12,7 +12,7 @@ export default config({
   ui: {
     brand: { name: "Geoffrey Ngugi" },
     navigation: {
-      Blog: ["blog"],
+      Articles: ["blog"],
       Portfolio: ["profile", "projects", "experience", "skills"],
     },
   },
@@ -94,7 +94,7 @@ export default config({
   },
   collections: {
     blog: collection({
-      label: "Blog",
+      label: "Articles",
       slugField: "title",
       path: "src/content/blog/*",
       format: { contentField: "content" },

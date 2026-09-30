@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import { seo } from "../data/data.js";
 
-const blogs = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+const articles = (await getCollection("blog", ({ data }) => !data.draft)).sort(
   (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
 );
 
@@ -16,40 +16,40 @@ const formatDate = (date: Date) =>
 ---
 
 <Layout
-  title={`Blogs | ${seo.title}`}
+  title={`Articles | ${seo.title}`}
   description='Read articles, tutorials, and insights on web development, programming and mobile development.'
-  keywords='blog, web development, React Native, NestJS, programming, tutorials'
+  keywords='articles, web development, React Native, NestJS, programming, tutorials'
 >
   <div class='md:w-[700px] w-[100%] mt-5 p-4'>
     <main class='flex flex-col gap-2'>
       <h1 class="text-xl font-medium before:content-['>'] before:mr-1">
-        Blogs
+        Articles
       </h1>
       <div class='flex flex-col gap-4 p-1'>
         {
-          blogs.length > 0 ? (
-            blogs.map((blog) => (
+          articles.length > 0 ? (
+            articles.map((article) => (
               <div class='flex items-start justify-between gap-5'>
-                <a href={`/blog/${blog.id}`} class='flex flex-col gap-0.5'>
+                <a href={`/articles/${article.id}`} class='flex flex-col gap-0.5'>
                   <h2 class='cursor-pointer hover:underline'>
-                    {blog.data.title}
+                    {article.data.title}
                   </h2>
-                  {blog.data.description && (
+                  {article.data.description && (
                     <p class='text-sm text-base-content/70'>
-                      {blog.data.description}
+                      {article.data.description}
                     </p>
                   )}
                 </a>
                 <time
                   class='text-xs shrink-0 mt-1'
-                  datetime={blog.data.publishedDate.toISOString()}
+                  datetime={article.data.publishedDate.toISOString()}
                 >
-                  {formatDate(blog.data.publishedDate)}
+                  {formatDate(article.data.publishedDate)}
                 </time>
               </div>
             ))
           ) : (
-            <p class='text-center mt-10'>No blogs available.</p>
+            <p class='text-center mt-10'>No articles yet.</p>
           )
         }
       </div>

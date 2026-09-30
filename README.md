@@ -1,6 +1,6 @@
 # Portfolio
 
-Personal portfolio and blog built with Astro, deployed to Cloudflare Workers.
+Personal portfolio and articles built with Astro, deployed to Cloudflare Workers.
 Content is managed with [Keystatic](https://keystatic.com) and stored as files
 in this repo — there is no database.
 
@@ -17,7 +17,7 @@ in this repo — there is no database.
 ## Editing content
 
 1. Run `yarn cms` and open <http://localhost:4321/keystatic>.
-2. Edit a blog post or the portfolio sections (profile, projects, experience,
+2. Edit an article or the portfolio sections (profile, projects, experience,
    tech stack) and save. Keystatic writes the changes straight to
    `src/content/`.
 3. Check the result at <http://localhost:4321>, then commit and push:
@@ -38,7 +38,7 @@ see the GitHub mode note at the top of `keystatic.config.ts`.
 
 | Path                           | Content                                   |
 | :----------------------------- | :---------------------------------------- |
-| `src/content/blog/*.md`        | Blog posts (`draft: true` hides a post)   |
+| `src/content/blog/*.md`        | Articles (`draft: true` hides an article) |
 | `src/content/profile.json`     | Name, bio, links, SEO                     |
 | `src/content/projects.json`    | Projects (`pinned` shows on the home page) |
 | `src/content/experience.json`  | Work history                              |

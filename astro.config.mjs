@@ -29,10 +29,13 @@ export default defineConfig({
   // `yarn cms` stays fully on-demand so edits show up without a rebuild.
   output: cmsMode ? "server" : "static",
   adapter,
-  // `/blogs` is served as blogs.html, avoiding a redirect to `/blogs/`.
+  // `/articles` is served as articles.html, avoiding a redirect to `/articles/`.
   trailingSlash: "never",
   build: { format: "file" },
-  redirects: { "/about": "/#about" },
+  redirects: {
+    "/about": "/#about",
+    "/blogs": "/articles",
+  },
   vite: {
     plugins: [tailwindcss()],
   },
