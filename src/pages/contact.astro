@@ -14,7 +14,12 @@ import { forms, seo } from "../data/data.js";
         Contact Me
       </h1>
       <div class='p-1'>
-        <form action={forms.formspreeUrl} method='POST' class='flex flex-col'>
+        <form
+          id='contact-form'
+          action={forms.formspreeUrl}
+          method='POST'
+          class='flex flex-col'
+        >
           <div>
             <div>
               <label
@@ -58,7 +63,8 @@ import { forms, seo } from "../data/data.js";
             </div>
             <div class='mt-2'>
               <button
-                class='uppercase text-sm font-bold tracking-wide bg-base-content text-base-100 p-3 cursor-pointer hover:bg-base-content/95 rounded-lg w-full focus:outline-none focus:shadow-outline'
+                type='submit'
+                class='uppercase text-sm font-bold tracking-wide bg-base-content text-base-100 p-3 cursor-pointer hover:bg-base-content/95 rounded-lg w-full focus:outline-none focus:shadow-outline disabled:opacity-60 disabled:cursor-wait'
               >
                 Send Message
               </button>
@@ -68,4 +74,62 @@ import { forms, seo } from "../data/data.js";
       </div>
     </main>
   </div>
+
+  <dialog id='contact-dialog' class='modal' aria-labelledby='contact-dialog-title'>
+    <div class='modal-box'>
+      <h2 id='contact-dialog-title' class='text-lg font-semibold'></h2>
+      <p id='contact-dialog-body' class='mt-2 text-base-content/80'></p>
+      <div class='modal-action'>
+        <form method='dialog'>
+          <button class='btn'>Close</button>
+        </form>
+      </div>
+    </div>
+    <form method='dialog' class='modal-backdrop'>
+      <button>close</button>
+    </form>
+  </dialog>
 </Layout>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const submitButton = form.querySelector("button[type=submit]")!;
+  const dialog = document.getElementById("contact-dialog") as HTMLDialogElement;
+  const dialogTitle = document.getElementById("contact-dialog-title")!;
+  const dialogBody = document.getElementById("contact-dialog-body")!;
+
+  const showDialog = (title: string, body: string) => {
+    dialogTitle.textContent = title;
+    dialogBody.textContent = body;
+    dialog.showModal();
+  };
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const label = submitButton.textContent;
+    submitButton.setAttribute("disabled", "");
+    submitButton.textContent = "Sending…";
+    try {
+      // Formspree replies with JSON instead of its redirect page when asked.
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error(`Formspree responded ${res.status}`);
+      form.reset();
+      showDialog(
+        "Message sent",
+        "Thanks for reaching out! I'll get back to you soon.",
+      );
+    } catch {
+      showDialog(
+        "Message not sent",
+        "Something went wrong. Please try again, or email me directly.",
+      );
+    } finally {
+      submitButton.removeAttribute("disabled");
+      submitButton.textContent = label;
+    }
+  });
+</script>
