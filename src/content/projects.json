@@ -11,6 +11,18 @@
         "Sentry"
       ],
       "link": "https://www.myworkpay.com",
+      "pinned": false
+    },
+    {
+      "title": "actionsheet-picker",
+      "description": "Open-source npm package: a searchable, grouped, infinite-scrolling bottom-sheet picker for React Native with zero native dependencies. Supports single and multi-select, remote search with debounce, pagination, theming, accessibility, and a react-hook-form adapter.",
+      "tags": [
+        "React Native",
+        "TypeScript",
+        "npm",
+        "Open Source"
+      ],
+      "link": "https://jeffngugi.github.io/actionsheet-picker/",
       "pinned": true
     },
     {
